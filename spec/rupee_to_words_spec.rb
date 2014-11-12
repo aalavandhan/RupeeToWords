@@ -1,18 +1,15 @@
 require_relative "../lib/rupee_to_words.rb"
 
-describe RupeeToWords do
-	class Test
-		extend RupeeToWords
+describe ToWords do
+	context "with a whole number" do
+		it "should return the number in words" do
+			expect(123.to_words).to eq("One hundred and twenty three")
+		end
 	end
-	context do
-		it "should convert 10 to Ten Rupees only" do
-			expect(Test.to_words(10)).to eq("Ten Rupees ,only.")
-		end
-		it "should convert 100.1 to Hundred Rupees and thirty five paisa only" do
-			expect(Test.to_words(100.1)).to eq("One Hundred Rupees and Ten Paisa ,only.")
-		end
-		it "should convert 1,12,33,02,344 to Hundred and twelve crore thiry three lakh two thousand three hundred and forty four only" do
-			expect(Test.to_words(1123302344)).to eq("One Hundred Twelve Crore Thirty Three Lakh Two Thousand Three Hundred Forty Four Rupees ,only.")
+
+	context "with a floating number" do
+		it "should return the number in words" do
+			expect(123.to_words).to eq("One hundred and twenty three")
 		end
 	end
 end
